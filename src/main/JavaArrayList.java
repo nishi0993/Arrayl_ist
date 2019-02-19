@@ -1,19 +1,40 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class JavaArrayList {
     public static void main(String[] args) {
-        ArrayList<Integer> list=new ArrayList<Integer>();
-       /* for (int i = 0; i < 10; i++) {
-            list.add(i,i+1);
+        Scanner sc=new Scanner(System.in);
+        int size=sc.nextInt();
+        int[] marks = new int[size];
+        for (int i = 0; i < marks.length; i++) {
+            marks[i] =sc.nextInt();
         }
-        list.remove(0);*/
-        list.add(42);
+        for (int mark : marks) {
+            System.out.println(mark);
+        }
+        System.out.println("Enter ele to be searched");
+        int value = sc.nextInt();
+        int pos = LinearSearch(marks, value);
+if(pos==-1)
+{
+    System.out.println(value+" not found in array");
+}else{
+    System.out.println(value+" found at position "+pos);
+}
 
-        //for (Integer i:list) {
-            System.out.println(list);
-
-        //}
+    }
+    private static int LinearSearch(int[] marks, int value) {
+        int pos=-1;
+        for (int i = 0; i < marks.length; i++) {
+            if(marks[i]==value)
+            {
+                pos=i;
+                break;
+            }
+        }
+        return pos;
     }
 }
+
